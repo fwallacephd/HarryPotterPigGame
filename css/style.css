@@ -24,6 +24,12 @@
     border: 80%;
 }
 
+
+.dice {
+    width: 80%;
+}
+
+
 #new-game, #roll, #hold {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 20px;
@@ -60,5 +66,5 @@
 /* COPYRIGHT */
 .copyright {
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
 }
