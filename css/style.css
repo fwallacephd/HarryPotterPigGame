@@ -44,6 +44,10 @@
     font-size: 35px;
 }
 
+.active {
+    font-weight: bold;
+    color: darkred;
+}
 
 .player1-score, .player2-score {
     font-family: potterfont;

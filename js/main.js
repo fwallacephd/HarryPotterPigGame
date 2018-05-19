@@ -29,6 +29,7 @@ document.querySelector('#roll').addEventListener('click', function() {
   var image;
   /*Randomize*/
   var dice = Math.floor(Math.random() * 6) + 1;
+
   /*Display the Result*/
   /*Matching Images*/
   if (dice === 1){
@@ -44,10 +45,37 @@ document.querySelector('#roll').addEventListener('click', function() {
   } else if (dice === 6) {
     image = 'goblet';
   }
+
   var diceDOM = document.querySelector('.dice');
   diceDOM.style.display = 'block';
   diceDOM.src = image + '.png';
+
+
   /*Update the round score IF the rolled dice is not 1*/
+  if (activePlayer === "player1") {
+    document.querySelector('#player1-name').classList.add('active');
+    document.querySelector('#player2-name').classList.remove('active');
+    if (dice > 1) {
+      roundScore += dice;
+      document.querySelector('#player1-total').textContent = roundScore;
+    } else {
+      roundScore = 0;
+      activePlayer = "player2";
+      document.getElementById('player1-total').textContent = "0";
+    }
+  } else if (activePlayer === "player2") {
+    document.querySelector('#player2-name').classList.add('active');
+    document.querySelector('#player1-name').classList.remove('active');
+    if (dice > 1) {
+      roundScore += dice;
+      document.querySelector('#player2-total').textContent = roundScore;
+    } else {
+      roundScore = 0;
+      activePlayer = "player1";
+      document.getElementById('player2-total').textContent = "0";
+    }
+  }
+
 
 });
 
