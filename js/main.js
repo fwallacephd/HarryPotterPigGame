@@ -9,20 +9,59 @@ GAME RULES:
 
 */
 
-var PotterDice = {
-  "egg": 1,
-  "broom": 2,
-  "owl": 3,
-  "hat": 4,
-  "map": 5,
-  "goblet": 6
-}
-
-var scores, roundScore, activePlayer, dice;
+/* Global Variables*/
+var scores, roundScore, activePlayer, image;
 
 scores = [0, 0];
 roundScore = 0;
-activePlayer = 0;
+activePlayer = "player1";
 
-dice = Math.floor(Math.random() * 6) + 1;
+
+document.getElementById('player1-score').textContent = "0";
+document.getElementById('player2-score').textContent = "0";
+document.getElementById('player1-total').textContent = "0";
+document.getElementById('player2-total').textContent = "0";
+
+
+
+/*ROll Dice*/
+document.querySelector('#roll').addEventListener('click', function() {
+  var image;
+  /*Randomize*/
+  var dice = Math.floor(Math.random() * 6) + 1;
+  /*Display the Result*/
+  /*Matching Images*/
+  if (dice === 1){
+    image = 'egg';
+  } else if (dice === 2) {
+    image = 'broom';
+  } else if (dice === 3) {
+    image = 'owl';
+  } else if (dice === 4) {
+    image = 'hat';
+  } else if (dice === 5) {
+    image = 'map';
+  } else if (dice === 6) {
+    image = 'goblet';
+  }
+  var diceDOM = document.querySelector('.dice');
+  diceDOM.style.display = 'block';
+  diceDOM.src = image + '.png';
+  /*Update the round score IF the rolled dice is not 1*/
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
