@@ -61,20 +61,20 @@ document.querySelector('#roll').addEventListener('click', function() {
 document.querySelector('#hold').addEventListener('click', function() {
   //Add Current Score to Total Score
   //Update the UI
+  nextPlayer();
   if (activePlayer === "player1") {
-    player1Score += roundScore;
+    player1Score = roundScore;
     document.querySelector('#player1-score').textContent = player1Score;
     activePlayer = "player2";
     player1Score = 0;
-    roundScore = 0;
   } else if (activePlayer === "player2") {
-    player2Score += roundScore
+    player2Score = roundScore;
     document.querySelector('#player2-score').textContent = player2Score;
     activePlayer = "player1";
     player2Score = 0;
   }
 
-nextPlayer();
+
  //Check if player won the game
 
 });
@@ -96,6 +96,7 @@ function nextPlayer() {
       roundScore = 0;
       activePlayer = "player2";
       document.getElementById('player1-total').textContent = "0";
+      document.getElementById('player2-total').textContent = "0";
       document.querySelector('.dice').style.display = "none";
     }
 
@@ -111,6 +112,7 @@ function nextPlayer() {
       roundScore = 0;
       activePlayer = "player1";
       document.getElementById('player2-total').textContent = 0;
+      document.getElementById('player1-total').textContent = "0";
       document.querySelector('.dice').style.display = "none";
     }
   }
