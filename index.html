@@ -23,7 +23,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <!--Icons-->
-    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
     <!--CSS-->
     <link rel="stylesheet" href="css/style.css">
@@ -55,7 +55,7 @@
          <br>
 
          <!--Set new Game-->
-         <button id="new-game" type="button" class="btn new-game-button text-center"><i class="ion-ios-plus-outline"></i> New game</button>
+         <button id="new-game" type="button" class="btn new-game-button text-center"><i class="fas fa-plus-circle"></i> New game</button>
          <br>
 
          <!-- Player1-->
@@ -65,8 +65,10 @@
              <p id="player1-score" class="player1-score text-center">0</p>
              <br>
              <br>
+             <div class="current text-center">
              <p id="player1-current" class="player1-current text-center">Current Score</p>
             <p id="player1-total" class="player1-total-score text-center">0</p>
+            </div>
            </div>
 
            <!-- HP "Dice"-->
@@ -81,8 +83,10 @@
              <p id="player2-score" class="player2-score text-center">0</p>
              <br>
              <br>
+             <div class="current text-center">
              <p id="player2-current" class="player2-current text-center">Current Score</p>
              <p id="player2-total" class="player2-total-score text-center">0</p>
+             </div>
            </div>
          </div>
 
@@ -91,8 +95,8 @@
            <div class="col-md-4">
           </div>
            <div class="col-md-4">
-            <button id="roll" type="button" class="btn roll-dice"><i class="ion-ios-loop"></i> Roll dice</button><br>
-            <button id="hold" type="button" class="btn hold-dice"><i class="ion-ios-download-outline"></i> Hold</button>
+            <button id="roll" type="button" class="btn roll-dice"><i class="fas fa-undo"></i> Roll dice</button><br>
+            <button id="hold" type="button" class="btn hold-dice"><i class="far fa-arrow-alt-circle-down"></i> Hold</button>
             <br>
            </div>
            <div class="col-md-4">

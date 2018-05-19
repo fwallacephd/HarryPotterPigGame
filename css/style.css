@@ -22,8 +22,16 @@
 .game-square {
     border: 2px solid black;
     border: 80%;
+    box-shadow: 5px 10px #888888;
 }
 
+/*
+.current {
+    border: 2px solid  black;
+    background-color:  darkred;
+    color: white;
+    text-align: center;
+}*/
 
 .dice {
     width: 80%;
