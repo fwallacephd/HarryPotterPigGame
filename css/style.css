@@ -1,0 +1,64 @@
+* {
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*BODY*/
+
+
+@font-face {
+    font-family: potterfont;
+    src: url(LumosLatino.ttf);
+}
+
+/*TITLE*/
+.title {
+    font-family: potterfont;
+    font-size: 55px;
+}
+
+/*GAME BOARD*/
+.game-square {
+    border: 2px solid black;
+    border: 80%;
+}
+
+#new-game, #roll, #hold {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+}
+
+.total-scores {
+    margin-top: 5%;
+}
+
+.player1, .player2 {
+    font-family: potterfont;
+    font-size: 35px;
+}
+
+
+.player1-score, .player2-score {
+    font-family: potterfont;
+    font-size: 45px;
+    line-height: 10px;
+}
+
+.player1-current, .player2-current {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+}
+
+.player1-total-score, .player2-total-score {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    line-height: 5px;
+}
+
+
+/* COPYRIGHT */
+.copyright {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+}
