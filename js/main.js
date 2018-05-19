@@ -14,6 +14,8 @@ var player1Score, player2Score, activePlayer, image, dice;
 
 player1Score = 0;
 player2Score = 0;
+player1Total = 0;
+player2Total = 0;
 
 activePlayer = "player1";
 
@@ -62,15 +64,16 @@ document.querySelector('#hold').addEventListener('click', function() {
   //Add Current Score to Total Score
   //Update the UI
   if (activePlayer === "player1") {
-    document.querySelector('#player1-score').textContent = player1Score;
+    player1Total += player1Score;
+    document.getElementById('player1-score').textContent = player1Total;
     activePlayer = "player2";
     player1Score = 0;
   } else if (activePlayer === "player2") {
-    document.querySelector('#player2-score').textContent = player2Score;
+    player2Total += player2Score;
+    document.getElementById('player2-score').textContent = player2Total;
     activePlayer = "player1";
     player2Score = 0;
   }
-  nextPlayer();
 
  //Check if player won the game
 
@@ -92,7 +95,7 @@ function nextPlayer() {
       activePlayer = "player2";
       document.getElementById('player1-total').textContent = "0";
       document.getElementById('player2-total').textContent = "0";
-      document.querySelector('.dice').style.display = "none";
+      //document.querySelector('.dice').style.display = "none";
     }
 
   } else if (activePlayer === "player2") {
@@ -107,7 +110,7 @@ function nextPlayer() {
       activePlayer = "player1";
       document.getElementById('player2-total').textContent = "0";
       document.getElementById('player1-total').textContent = "0";
-      document.querySelector('.dice').style.display = "none";
+      //document.querySelector('.dice').style.display = "none";
     }
   }
 };
