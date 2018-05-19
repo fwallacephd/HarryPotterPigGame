@@ -10,7 +10,7 @@ GAME RULES:
 */
 
 /* Global Variables*/
-var player1Score, player2Score, activePlayer, player1Total, player2Total, image, dice;
+var player1Score, player2Score, activePlayer, player1Total, player2Total, dice;
 
 gameInit();
 
@@ -18,7 +18,7 @@ gameInit();
 document.querySelector('#roll').addEventListener('click', function() {
   /*Randomize*/
   dice = Math.floor(Math.random() * 6) + 1;
-
+  var image;
   /*Display the Result*/
   /*Matching Images*/
   if (dice === 1){
@@ -63,12 +63,12 @@ document.querySelector('#hold').addEventListener('click', function() {
     player2Score = 0;
   }
   //Check if player won the game
-  if (player1Total >= 10) {
+  if (player1Total >= 50) {
     document.getElementById('player1-name').textContent = "Winner!";
     document.querySelector('.dice').src="potter.png";
     document.getElementById('roll').style.visibility = "hidden";
     document.getElementById('hold').style.visibility = "hidden";
-  } else if (player2Total >= 10) {
+  } else if (player2Total >= 50) {
     document.getElementById('player2-name').textContent = "Winner!";
     document.querySelector('.dice').src="potter.png";
     document.getElementById('roll').style.visibility = "hidden";
