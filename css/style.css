@@ -16,6 +16,23 @@
 .title {
     font-family: potterfont;
     font-size: 55px;
+    line-height: 20px;
+}
+
+
+.directions {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    color: darkred;
+}
+
+.modal-title, .modal-body, .modal-footer {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.modal-title, .modal-footer, .button-close {
+    color: darkred;
 }
 
 /*GAME BOARD*/
@@ -76,6 +93,11 @@
 
 
 /* COPYRIGHT */
+.credit {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 15px;
+}
+
 .copyright {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 15px;
