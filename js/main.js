@@ -10,26 +10,12 @@ GAME RULES:
 */
 
 /* Global Variables*/
-var player1Score, player2Score, activePlayer, image, dice;
+var player1Score, player2Score, activePlayer, player1Total, player2Total, image, dice;
 
-player1Score = 0;
-player2Score = 0;
-player1Total = 0;
-player2Total = 0;
-
-activePlayer = "player1";
-
-
-document.getElementById('player1-score').textContent = "0";
-document.getElementById('player2-score').textContent = "0";
-document.getElementById('player1-total').textContent = "0";
-document.getElementById('player2-total').textContent = "0";
-
-
+gameInit();
 
 /*ROll Dice*/
 document.querySelector('#roll').addEventListener('click', function() {
-  image;
   /*Randomize*/
   dice = Math.floor(Math.random() * 6) + 1;
 
@@ -47,6 +33,8 @@ document.querySelector('#roll').addEventListener('click', function() {
     image = 'map';
   } else if (dice === 6) {
     image = 'goblet';
+  } else {
+    image = 'potter';
   }
 
   var diceDOM = document.querySelector('.dice');
@@ -74,12 +62,44 @@ document.querySelector('#hold').addEventListener('click', function() {
     activePlayer = "player1";
     player2Score = 0;
   }
-
- //Check if player won the game
-
+  //Check if player won the game
+  if (player1Total >= 10) {
+    document.getElementById('player1-name').textContent = "Winner!";
+    document.querySelector('.dice').src="potter.png";
+    document.getElementById('roll').style.visibility = "hidden";
+    document.getElementById('hold').style.visibility = "hidden";
+  } else if (player2Total >= 10) {
+    document.getElementById('player2-name').textContent = "Winner!";
+    document.querySelector('.dice').src="potter.png";
+    document.getElementById('roll').style.visibility = "hidden";
+    document.getElementById('hold').style.visibility = "hidden";
+  }
 });
 
+/*New Game*/
+function gameInit() {
+  player1Score = 0;
+  player2Score = 0;
+  player1Total = 0;
+  player2Total = 0;
+  activePlayer = "player1";
 
+  document.getElementById('player1-score').textContent = "0";
+  document.getElementById('player2-score').textContent = "0";
+  document.getElementById('player1-total').textContent = "0";
+  document.getElementById('player2-total').textContent = "0";
+
+  document.getElementById('player1-name').textContent = "Player 1";
+  document.getElementById('player2-name').textContent = "Player 2";
+
+  document.querySelector('.dice').src="potter.png";
+
+  document.getElementById('hold').style.visibility = "visible";
+  document.getElementById('roll').style.visibility = "visible";
+}
+
+
+document.getElementById('new-game').addEventListener('click', gameInit);
 
 /* Track Player and Score - Function*/
 function nextPlayer() {
