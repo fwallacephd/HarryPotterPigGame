@@ -10,11 +10,11 @@ GAME RULES:
 */
 
 /* Global Variables*/
-var player1Score, player2Score, roundScore, activePlayer, image, dice;
+var player1Score, player2Score, activePlayer, image, dice;
 
 player1Score = 0;
 player2Score = 0;
-roundScore = 0;
+
 activePlayer = "player1";
 
 
@@ -52,8 +52,8 @@ document.querySelector('#roll').addEventListener('click', function() {
   diceDOM.src = image + '.png';
 
 
-  /*Change players, Update Scores - Function */
-  nextPlayer();
+/*Change players, Update Scores - Function */
+nextPlayer();
 });
 
 
@@ -61,24 +61,20 @@ document.querySelector('#roll').addEventListener('click', function() {
 document.querySelector('#hold').addEventListener('click', function() {
   //Add Current Score to Total Score
   //Update the UI
-  nextPlayer();
   if (activePlayer === "player1") {
-    player1Score = roundScore;
     document.querySelector('#player1-score').textContent = player1Score;
     activePlayer = "player2";
     player1Score = 0;
   } else if (activePlayer === "player2") {
-    player2Score = roundScore;
     document.querySelector('#player2-score').textContent = player2Score;
     activePlayer = "player1";
     player2Score = 0;
   }
-
+  nextPlayer();
 
  //Check if player won the game
 
 });
-
 
 
 
@@ -89,11 +85,10 @@ function nextPlayer() {
     document.querySelector('#player1-name').classList.add('active');
     document.querySelector('#player2-name').classList.remove('active');
     if (dice > 1) {
-      roundScore += dice;
-      document.querySelector('#player1-total').textContent = roundScore;
+      player1Score += dice;
+      document.getElementById('player1-total').textContent = player1Score;
     } else {
       //Change State Pattern
-      roundScore = 0;
       activePlayer = "player2";
       document.getElementById('player1-total').textContent = "0";
       document.getElementById('player2-total').textContent = "0";
@@ -105,13 +100,12 @@ function nextPlayer() {
     document.querySelector('#player2-name').classList.add('active');
     document.querySelector('#player1-name').classList.remove('active');
     if (dice > 1) {
-      roundScore += dice;
-      document.querySelector('#player2-total').textContent = roundScore;
+      player2Score += dice;
+      document.getElementById('player2-total').textContent = player2Score;
     } else {
       //Change State Pattern
-      roundScore = 0;
       activePlayer = "player1";
-      document.getElementById('player2-total').textContent = 0;
+      document.getElementById('player2-total').textContent = "0";
       document.getElementById('player1-total').textContent = "0";
       document.querySelector('.dice').style.display = "none";
     }
