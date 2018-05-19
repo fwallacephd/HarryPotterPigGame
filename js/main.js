@@ -9,8 +9,8 @@ GAME RULES:
 
 */
 
-/* Global Variables*/
-var player1Score, player2Score, activePlayer, player1Total, player2Total, dice;
+/* Global Scope*/
+let player1Score, player2Score, activePlayer, player1Total, player2Total, dice;
 
 gameInit();
 
@@ -18,9 +18,31 @@ gameInit();
 document.querySelector('#roll').addEventListener('click', function() {
   /*Randomize*/
   dice = Math.floor(Math.random() * 6) + 1;
-  var image;
+  console.log("The number is" + dice);
+
   /*Display the Result*/
   /*Matching Images*/
+
+    //let icons = {
+    //1: 'egg',
+    //2: 'broom',
+    //3: 'owl',
+    //4: 'hat',
+    //5: 'map',
+    //6: 'goblet'
+  //}
+
+//for (let item in icons) {
+  //console.log (item)
+  //let newKey = item;
+  //console.log(newKey);
+  //if (newKey === dice) {
+    //console.log("match");
+  //}
+//}
+
+
+  let image;
   if (dice === 1){
     image = 'egg';
   } else if (dice === 2) {
@@ -37,7 +59,7 @@ document.querySelector('#roll').addEventListener('click', function() {
     image = 'potter';
   }
 
-  var diceDOM = document.querySelector('.dice');
+  let diceDOM = document.querySelector('.dice');
   diceDOM.style.display = 'block';
   diceDOM.src = image + '.png';
 
@@ -63,12 +85,12 @@ document.querySelector('#hold').addEventListener('click', function() {
     player2Score = 0;
   }
   //Check if player won the game
-  if (player1Total >= 50) {
+  if (player1Total >= 25) {
     document.getElementById('player1-name').textContent = "Winner!";
     document.querySelector('.dice').src="potter.png";
     document.getElementById('roll').style.visibility = "hidden";
     document.getElementById('hold').style.visibility = "hidden";
-  } else if (player2Total >= 50) {
+  } else if (player2Total >= 25) {
     document.getElementById('player2-name').textContent = "Winner!";
     document.querySelector('.dice').src="potter.png";
     document.getElementById('roll').style.visibility = "hidden";
