@@ -42,9 +42,32 @@
         <div class="col-md-12 text-center">
           <br>
           <p class="title text-center">Harry Potter Pig Game</p>
+          <button type="button" class="btn btn-link directions" data-toggle="modal" data-target="#directions"><strong>Directions</strong></button>
         </div>
       </div>
     </section>
+
+    <!-- MODAL for 'Directions'-->
+      <div class="modal fade" id="directions" tabindex="-1" role="dialog" aria-labelledby="Game Directions" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">How do you play?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>This is a pig game, instead of dice, we are usign icons from Harry Potter. Here is the icon translation: The egg is 1, the broom is 2, the owl is 3, the hat is 4, the map is 5, and the goblet is 6.
+            The game has two players, playing in rounds. In each turn, a player rolls a dice as many times as he whishes. Each result get added to his CURRENT score. BUT, if the player rolls a 1, all his CURRENT score gets lost. After that, it's the next player's turn. The player can choose to 'Hold', which means that his CURRENT score gets added to his TOTAL score. After that, it's the next player's turn. The first player to reach 25 points on TOTAL score wins the game.
+          </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn button-close" data-dismiss="modal">Close</button>
+          </div>
+      </div>
+      </div>
+      </div>
     <!--End HEADER-->
 
     <!--GAME BOARD-->
@@ -111,6 +134,7 @@
        <div class="col-md-12">
        <br>
        <br>
+       <p class="credit text-center">The fabulous Harry Potter icons were made by <a href="http://www.iconka.com/en/" target="_blank">Iconka</a></p>
         <p class="copyright text-center"><strong>Made with a <span class="white"> magic </span> by Faith H. Wallace, Ph.D., &copy;  2018 • Follow Me <i class="fab fa-twitter"></i> </strong><a class="twitter-link" href="https://twitter.com/fwallacephd" data-show-count="false">@fwallacephd</a></p>
        </div>
       </div>
