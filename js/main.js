@@ -10,7 +10,8 @@ GAME RULES:
 */
 
 /* Global Scope*/
-let player1Score, player2Score, activePlayer, player1Total, player2Total, dice;
+let player1Score, player2Score, activePlayer, player1Total, player2Total, winner, dice;
+
 
 gameInit();
 
@@ -23,41 +24,9 @@ document.querySelector('#roll').addEventListener('click', function() {
   /*Display the Result*/
   /*Matching Images*/
 
-    //let icons = {
-    //1: 'egg',
-    //2: 'broom',
-    //3: 'owl',
-    //4: 'hat',
-    //5: 'map',
-    //6: 'goblet'
-  //}
+  let icon = ["egg", "broom", "owl", "hat", "map", "goblet"];
+  let image = icon[dice -1];
 
-//for (let item in icons) {
-  //console.log (item)
-  //let newKey = item;
-  //console.log(newKey);
-  //if (newKey === dice) {
-    //console.log("match");
-  //}
-//}
-
-
-  let image;
-  if (dice === 1){
-    image = 'egg';
-  } else if (dice === 2) {
-    image = 'broom';
-  } else if (dice === 3) {
-    image = 'owl';
-  } else if (dice === 4) {
-    image = 'hat';
-  } else if (dice === 5) {
-    image = 'map';
-  } else if (dice === 6) {
-    image = 'goblet';
-  } else {
-    image = 'potter';
-  }
 
   let diceDOM = document.querySelector('.dice');
   diceDOM.style.display = 'block';
@@ -106,6 +75,7 @@ function gameInit() {
   player2Total = 0;
   activePlayer = "player1";
 
+
   document.getElementById('player1-score').textContent = "0";
   document.getElementById('player2-score').textContent = "0";
   document.getElementById('player1-total').textContent = "0";
@@ -118,7 +88,7 @@ function gameInit() {
 
   document.getElementById('hold').style.visibility = "visible";
   document.getElementById('roll').style.visibility = "visible";
-}
+};
 
 
 document.getElementById('new-game').addEventListener('click', gameInit);
