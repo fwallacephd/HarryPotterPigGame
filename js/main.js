@@ -1,13 +1,15 @@
 /* Global Scope*/
 
-let activePlayer, winner, dice;
+let activePlayer, dice;
 
+/*Two player game*/
 let player1 = {
   name: "player1",
   currentScore: 0,
   totalScore: 0,
   totalElementID: "player1-total",
-  nameElementID: "#player1-name"
+  nameElementID: "#player1-name",
+  scoreElementID: "#player1-score"
 };
 
 let player2 = {
@@ -15,13 +17,13 @@ let player2 = {
   currentScore: 0,
   totalScore: 0,
   totalElementID: "player2-total",
-  nameElementID: "#player2-name"
+  nameElementID: "#player2-name",
+  scoreElementID: "#player2-score"
 };
 
-
-
 /*Game Init - NEW GAME*/
-function gameInit() {
+/*FUNCTION*/
+let gameInit = () => {
 
   activePlayer = player1;
 
@@ -44,21 +46,18 @@ function gameInit() {
 };
 
 /* Next Play & Track Score function*/
-function nextPlayer() {
+let nextPlayer = () => {
 
   if (activePlayer === player1) {
-
     updateScoreAndSwitchPlayer(player2, player1);
-
   } else if (activePlayer === player2) {
-
     updateScoreAndSwitchPlayer(player1, player2);
 
   }
 };
 
 /*Switch Players and update the score*/
-function updateScoreAndSwitchPlayer(newActivePlayer, inactivePlayer) {
+let updateScoreAndSwitchPlayer = (newActivePlayer, inactivePlayer) => {
 
       document.querySelector(inactivePlayer.nameElementID).classList.add('active');
       document.querySelector(newActivePlayer.nameElementID).classList.remove('active');
@@ -70,7 +69,25 @@ function updateScoreAndSwitchPlayer(newActivePlayer, inactivePlayer) {
       document.getElementById(inactivePlayer.totalElementID).textContent = "0";
       document.getElementById(newActivePlayer.totalElementID).textContent = "0";
     }
-}
+};
+
+/*Total Score Update Function*/
+let findTotalScore = (currentPlayer) => {
+    currentPlayer.totalScore += currentPlayer.currentScore;
+    document.querySelector(currentPlayer.scoreElementID).textContent = currentPlayer.totalScore;
+    document.getElementById(currentPlayer.totalElementID).textContent = "0";
+    currentPlayer.currentScore = 0;
+};
+
+/*Update Winner Function*/
+let updateWinner = (winner) => {
+    document.querySelector(winner.nameElementID).textContent = "Winner!";
+    document.querySelector('.dice').src="potter.png";
+    document.getElementById('roll').style.visibility = "hidden";
+    document.getElementById('hold').style.visibility = "hidden";
+};
+
+
 
 /*START GAME*/
 
@@ -96,39 +113,25 @@ document.querySelector('#roll').addEventListener('click', () => {
   nextPlayer();
 });
 
-/*Hold Button*/
-document.querySelector('#hold').addEventListener('click', function() {
-  //Add Current Score to Total Score
 
+/*Hold Button*/
+document.querySelector('#hold').addEventListener('click', () => {
+  //Add Current Score to Total Score
   if (activePlayer === player1) {
-    player1.totalScore += player1.currentScore;
-    document.getElementById('player1-score').textContent = player1.totalScore;
-    activePlayer = player2;
-    player1.currentScore = 0;
-  } else if (activePlayer === player2) {
-    player2.totalScore += player2.currentScore;
-    document.getElementById('player2-score').textContent = player2.totalScore;
+    findTotalScore(player1);
+    activePlayer = player2
+    }
+  else if (activePlayer === player2) {
+    findTotalScore(player2);
     activePlayer = player1;
-    player2.currentScore = 0;
-  }
+  };
+
   //Check if player won the game
   if (player1.totalScore >= 25) {
-    document.getElementById('player1-name').textContent = "Winner!";
-    document.querySelector('.dice').src="potter.png";
-    document.getElementById('roll').style.visibility = "hidden";
-    document.getElementById('hold').style.visibility = "hidden";
+      updateWinner(player1);
   } else if (player2.totalScore >= 25) {
-    document.getElementById('player2-name').textContent = "Winner!";
-    document.querySelector('.dice').src="potter.png";
-    document.getElementById('roll').style.visibility = "hidden";
-    document.getElementById('hold').style.visibility = "hidden";
+      updateWinner(player2);
   }
 });
 
 document.getElementById('new-game').addEventListener('click', gameInit);
-
-
-
-
-
-
